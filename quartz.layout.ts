@@ -41,7 +41,22 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [
-    Component.Graph(),
+    Component.Graph({
+      localGraph: {
+        drag: true, // whether to allow panning the view around
+        zoom: true, // whether to allow zooming in and out
+        depth: 1, // how many hops of notes to display
+        scale: 1.0, // default view scale
+        repelForce: 4, // how much nodes should repel each other
+        centerForce: 0.16, // how much force to use when trying to center the nodes
+        linkDistance: 10, // how long should the links be by default?
+        fontSize: 0.75, // what size should the node labels be?
+        opacityScale: 30, // how quickly do we fade out the labels when zooming out?
+        removeTags: [], // what tags to remove from the graph
+        showTags: true, // whether to show tags in the graph
+        enableRadial: false, // whether to constrain the graph, similar to Obsidian
+      },}
+    ),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
